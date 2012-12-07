@@ -18,9 +18,10 @@
 			<div id="header">
 				<c:choose>
 					<c:when test="${not empty success}">
-						<div id="header" style="color:green; height:21px; padding-top:4px; width:264px; margin-left:390px;">
-						<h1><c:out value="${success}" /></h1>
-						</div>
+						<script>
+							alert("${success}");
+							document.location="<c:url value=\"public\" />";
+						</script>
 					</c:when>
 					<c:when test="${not empty failure }">
 						<div id="header" style="color:red; height:110px; padding-top:4px; width:408px; margin-left:320px;">
