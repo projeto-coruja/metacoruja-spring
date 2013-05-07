@@ -38,7 +38,7 @@ public class UserDAO {
 	public void addUser(String email, String name, String password, Profile profile) throws UnreachableDataBaseException {
 		UserAccount newUser;
 		if(profile == null){
-			newUser = new UserAccount(name, ProfileDAOTest.getDefaultProfile(), email, password);
+			newUser = new UserAccount(name, ProfileDAO.getDefaultProfile(), email, password);
 		}
 		else{
 			newUser = new UserAccount(name, profile, email, password);
@@ -107,10 +107,10 @@ public class UserDAO {
 	
 	public List<DTO> listUsersByProfile(String profileName) throws UnreachableDataBaseException, ProfileNotFoundException, UserNotFoundException {
 		List<DTO> resultSet = null;
-		ProfileDAOTest profileDAO = null;
+		ProfileDAO profileDAO = null;
 		
 		try{
-			profileDAO = new ProfileDAOTest();
+			profileDAO = new ProfileDAO();
 			Profile profile = profileDAO.findProfileByName(profileName);
 			if(profile == null)	throw new ProfileNotFoundException();
 			resultSet = null;

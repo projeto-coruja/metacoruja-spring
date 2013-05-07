@@ -6,7 +6,7 @@ import persistence.dto.DTO;
 import persistence.dto.Profile;
 import persistence.dto.UserAccount;
 import persistence.exceptions.UpdateEntityException;
-import business.DAO.login.ProfileDAOTest;
+import business.DAO.login.ProfileDAO;
 import business.DAO.login.UserDAO;
 import business.EJB.util.EJBUtility;
 import business.EJB.util.RegularExpression;
@@ -20,7 +20,7 @@ import business.exceptions.login.UserNotFoundException;
 public class AdminBean {
 
 	private UserDAO userDAO;
-	private ProfileDAOTest profileDAO;
+	private ProfileDAO profileDAO;
 
 	private final String profileNamePattern = "([a-z0-9]){3,}";
 	private final RegularExpression profileNameChecker = new RegularExpression(profileNamePattern);
@@ -30,7 +30,7 @@ public class AdminBean {
 
 	public AdminBean() {
 		userDAO = new UserDAO();
-		profileDAO = new ProfileDAOTest();
+		profileDAO = new ProfileDAO();
 	}
 
 	public void adicionarProfile(String profile, boolean read, boolean write, boolean edit) 
